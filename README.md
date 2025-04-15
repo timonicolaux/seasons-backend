@@ -46,16 +46,23 @@ Generate a Django Secret Key :
 python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 ```
 
-Add this variable and your secretkey in .env file :
+Add this variable and your secretkey in your .env file :
 
 ```env
 SECRET_KEY=your-secret-key
 ```
 
+Add also these variables :
+
+```env
+EXPO_DEV_SERVER=address
+EXPO_GO_APP=address
+```
+
 ### Run the server
 
 ```bash
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
 ```
 
 ### Create a superuser to add/change/delete data (optional)
