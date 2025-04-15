@@ -31,5 +31,16 @@ class MonthView(APIView):
             return Response({'error': f'An unexpected error occurred: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class MonthListView(APIView):
+    @extend_schema(
+            summary="Liste des mois",
+            responses={
+                200: MonthSerializer(many=True),
+                500: {"description": "Unexpected error"}
+            }
+    )
     def get(self, request):
-        return Response({"message": "Month list"})
+        try:
+            months = MonthModel.objects.all()
+            return Response({'month list': MonthSerializer(months, many=True).data}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': f'An unexpected error occurred: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
