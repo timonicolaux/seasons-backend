@@ -36,6 +36,22 @@ python manage.py migrate
 python manage.py loaddata data.json
 ```
 
+### Configure environment variables
+
+Create a .env file at the root of your repository.
+
+Generate a Django Secret Key :
+
+```bash
+python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+```
+
+Add this variable and your secretkey in .env file :
+
+```env
+SECRET_KEY=your-secret-key
+```
+
 ### Run the server
 
 ```bash
