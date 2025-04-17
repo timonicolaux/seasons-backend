@@ -6,4 +6,4 @@ class MonthModel(models.Model):
 	products = models.ManyToManyField("api.ProductModel", related_name="months", blank=True)
 
 	def __str__(self):
-		return self.name
+		return self.id

@@ -1,2 +1,2 @@
-from .month_serializer import MonthSerializer
+from .month_serializer import MonthSerializer, MonthMinimalSerializer
 from .product_serializer import ProductSerializer
